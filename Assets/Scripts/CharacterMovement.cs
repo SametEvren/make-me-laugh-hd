@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    enum MovementState { Idle, Walk, Run }
+    public enum MovementState { Idle, Walk, Run }
     
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
@@ -11,11 +11,12 @@ public class CharacterMovement : MonoBehaviour
     public float jumpForce = 7f;
     public LayerMask groundLayer; // Set this in the inspector
     public Animator animator;
+    public MovementState movementState;
     
     private Rigidbody rb;
     private Vector3 movement;
     private bool isGrounded;
-    private MovementState currentState = MovementState.Idle;
+    private string currentState;
     private static readonly int Run = Animator.StringToHash("Run");
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Jump = Animator.StringToHash("Jump");
@@ -37,42 +38,43 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            animator.SetTrigger(Jump);
+            UpdateMoveAnim("Jump");
             isGrounded = false;
         }
 
         // Update movement state
-        if (movement.magnitude > 0.1f)
+        if (isGrounded)
         {
-            currentState = Input.GetKey(KeyCode.LeftShift) ? MovementState.Run : MovementState.Walk;
+            if (movement.magnitude > 0.1f)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    UpdateMoveAnim("Run");
+                    movementState = MovementState.Run;
+                }
+                else
+                {
+                    UpdateMoveAnim("Walk");
+                    movementState = MovementState.Walk;
+                }
+            }
+            else
+            {
+                UpdateMoveAnim("Idle");
+                movementState = MovementState.Idle;
+            }
         }
-        else
-        {
-            currentState = MovementState.Idle;
-        }
-        
+
         UpdateMoveAnim(currentState);
     }
 
-    void UpdateMoveAnim(MovementState movementState)
+    private void UpdateMoveAnim(string newState)
     {
-        switch (movementState)
-        {
-            case MovementState.Idle:
-                animator.SetBool(Run,false);
-                animator.SetBool(Walk,false);
-                break;
-            case MovementState.Walk:
-                animator.SetBool(Run,false);
-                animator.SetBool(Walk,true);
-                break;
-            case MovementState.Run:
-                animator.SetBool(Run,true);
-                animator.SetBool(Walk,false);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(movementState), movementState, null);
-        }
+        if (currentState == newState) return;
+        
+        animator.Play(newState);
+
+        currentState = newState;
     }
     
     void FixedUpdate()
@@ -85,7 +87,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (direction.magnitude > 0.1f)
         {
-            float currentSpeed = currentState == MovementState.Run ? runSpeed : walkSpeed;
+            float currentSpeed = movementState == MovementState.Run ? runSpeed : walkSpeed;
 
             // Move the character
             rb.MovePosition(transform.position + direction * currentSpeed * Time.fixedDeltaTime);
