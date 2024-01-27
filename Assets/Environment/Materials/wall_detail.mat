@@ -104,6 +104,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 937694a71887c434d952552101963b33, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_424df97a657d491cb0c23d8815db5902_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: f8cd3ef64bb6e664186d7fca0e96b1b1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -194,6 +198,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GrungePower: 0.6
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -235,6 +240,7 @@ Material:
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
+    - _Smoothness_Power: 1
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
@@ -257,6 +263,7 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _Tiling: 3
+    - _TilingGrunge: 0.2
     - _TransmissionEnable: 1
     - _TransmissionMask: 1
     - _TransparentBackfaceEnable: 0
