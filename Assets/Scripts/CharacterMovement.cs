@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
     public enum MovementState { Idle, Walk, Run }
-    
+
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float rotationSpeed = 720f; // Degrees per second
@@ -12,7 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask groundLayer; // Set this in the inspector
     public Animator animator;
     public MovementState movementState;
-    
+
     private Rigidbody rb;
     private Vector3 movement;
     private bool isGrounded;
@@ -71,12 +71,12 @@ public class CharacterMovement : MonoBehaviour
     private void UpdateMoveAnim(string newState)
     {
         if (currentState == newState) return;
-        
+
         animator.Play(newState);
 
         currentState = newState;
     }
-    
+
     void FixedUpdate()
     {
         // Movement
