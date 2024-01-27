@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -7,7 +6,6 @@ public class CharacterMovement : MonoBehaviour
 
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
-    public float rotationSpeed = 720f; // Degrees per second
     public float jumpForce = 7f;
     public LayerMask groundLayer; // Set this in the inspector
     public Animator animator;
@@ -17,12 +15,11 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 movement;
     private bool isGrounded;
     private string currentState;
-    private static readonly int Run = Animator.StringToHash("Run");
-    private static readonly int Walk = Animator.StringToHash("Walk");
-    private static readonly int Jump = Animator.StringToHash("Jump");
 
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
+    public Transform cam;
+
 
     void Start()
     {
@@ -32,10 +29,10 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         // Input for movement
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
+        movement = new Vector3(horizontal, 0, vertical).normalized;
 
         // Check for jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -95,16 +92,10 @@ public class CharacterMovement : MonoBehaviour
             // Move the character
             rb.MovePosition(transform.position + direction * currentSpeed * Time.fixedDeltaTime);
 
-            //// Rotate the character
-            //Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-
-            float targetAngle = Mathf.Atan2(direction.x, direction.y);
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
-            
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
     }
 
