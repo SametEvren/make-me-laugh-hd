@@ -36,7 +36,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             float currentSpeed = movementState == MovementState.Run ? runSpeed : walkSpeed;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 UpdateMoveAnim("Run");
