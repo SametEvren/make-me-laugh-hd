@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: barrelWood
+    second: {fileID: 2100000, guid: 5995208230657484db4e709940d40543, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: bed
     second: {fileID: 2100000, guid: 08851b3b0e3e8c44c9df51a10ccb5cc0, type: 2}
   - first:
