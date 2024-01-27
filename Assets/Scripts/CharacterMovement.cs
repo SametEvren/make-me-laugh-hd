@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpForce = 10f;  // Zýplama kuvveti
+    public float jumpForce = 10f;  
     private Rigidbody rb;
 
     void Start()
