@@ -21,6 +21,9 @@ public class CharacterMovement : MonoBehaviour
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Jump = Animator.StringToHash("Jump");
 
+    float turnSmoothVelocity;
+    public float turnSmoothTime = 0.1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -92,9 +95,16 @@ public class CharacterMovement : MonoBehaviour
             // Move the character
             rb.MovePosition(transform.position + direction * currentSpeed * Time.fixedDeltaTime);
 
-            // Rotate the character
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+            //// Rotate the character
+            //Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+
+            float targetAngle = Mathf.Atan2(direction.x, direction.y);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
+            
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+
         }
     }
 
