@@ -8,6 +8,9 @@ public class SkillController : MonoBehaviour
     public GameObject jugglerBall;
     public float randomisation;
     
+    //YoYo
+    public GameObject yoYoPrefab;
+    
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
@@ -29,4 +32,21 @@ public class SkillController : MonoBehaviour
             });
         }
     }
+
+    public void YoYoSkill()
+    {
+        GameObject yoYo = Instantiate(yoYoPrefab, handPos.position, Quaternion.identity);
+        var startPos = yoYo.transform.position;
+
+        Vector3 forwardDirection = transform.forward;
+
+        yoYo.transform.DOMove(startPos + forwardDirection * 10, 0.3f).OnComplete(() =>
+        {
+            yoYo.transform.DOMove(startPos, 0.4f).OnComplete(() =>
+            {
+                Destroy(yoYo);
+            });
+        });
+    }
+
 }
