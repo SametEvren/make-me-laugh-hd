@@ -203,5 +203,12 @@ public class ThirdPersonController : MonoBehaviour
             }
             enemies.Add(other.gameObject);
         }
+
+        if (other.CompareTag("Fog"))
+        {
+            // other.gameObject.GetComponent<MeshCollider>().enabled = true;
+            SoundManager.Instance.combatMusic.gameObject.SetActive(false);
+            SoundManager.Instance.bossMusic.gameObject.SetActive(true);
+        }
     }
 }

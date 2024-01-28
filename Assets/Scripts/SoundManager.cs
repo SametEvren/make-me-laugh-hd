@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip flute;
     public AudioClip hammer;
     public AudioClip enemyLaugh;
+
+    public AudioSource combatMusic;
+    public AudioSource bossMusic;
     
     void Awake()
     {
