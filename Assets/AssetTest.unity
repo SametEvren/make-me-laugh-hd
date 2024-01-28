@@ -5710,12 +5710,22 @@ PrefabInstance:
     - target: {fileID: 6195134373484570347, guid: 71d7d6d2a26d9224e8ba18a49d245be6,
         type: 3}
       propertyPath: m_Intensity
-      value: 4268.6094
+      value: 19376.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195134373484570347, guid: 71d7d6d2a26d9224e8ba18a49d245be6,
+        type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097674779136299711, guid: 71d7d6d2a26d9224e8ba18a49d245be6,
+        type: 3}
+      propertyPath: m_Range
+      value: 8.92
       objectReference: {fileID: 0}
     - target: {fileID: 9097674779136299711, guid: 71d7d6d2a26d9224e8ba18a49d245be6,
         type: 3}
       propertyPath: m_Intensity
-      value: 339.68512
+      value: 1541.8956
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10369,7 +10379,6 @@ MonoBehaviour:
   m_Script: {fileID: 1705111357}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1692491694
 Transform:
   m_ObjectHideFlags: 19
