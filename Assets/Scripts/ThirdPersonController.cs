@@ -43,6 +43,7 @@ public class ThirdPersonController : MonoBehaviour
     //Skills
     public bool isOnSkill;
     public SkillController skillController;
+
     private void Start()
     {
         trueSpeed = walkSpeed;
@@ -53,6 +54,7 @@ public class ThirdPersonController : MonoBehaviour
     
     private void Update()
     {
+        var soundManager = SoundManager.Instance;
         isGrounded = Physics.CheckSphere(transform.position, .1f, layerMask);
 
         if (isGrounded && velocity.y < 0)
@@ -78,9 +80,14 @@ public class ThirdPersonController : MonoBehaviour
             if (isGrounded && !isOnSkill)
             {
                 if (Math.Abs(trueSpeed - walkSpeed) < 0.1f)
+                {
                     UpdateMoveAnim(Walk);
+                }
+
                 if (Math.Abs(trueSpeed - sprintSpeed) < 0.1f)
+                {
                     UpdateMoveAnim(Run);
+                }
             }
 
             if (!isOnSkill)
