@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip flute;
     public AudioClip hammer;
     public AudioClip enemyLaugh;
+    public AudioClip kingLaugh;
 
     public AudioSource combatMusic;
     public AudioSource bossMusic;
@@ -85,6 +86,11 @@ public class SoundManager : MonoBehaviour
     public void EnemyLaugh()
     {
         effectSource.PlayOneShot(enemyLaugh);
+    }
+
+    public void KingLaugh()
+    {
+        effectSource.PlayOneShot(kingLaugh);
     }
     
     

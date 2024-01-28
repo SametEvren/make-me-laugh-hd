@@ -31119,7 +31119,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d31bf0d2176fed0428c943a509ba55a6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -46499,6 +46499,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1488568930283583624, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1427c76c8f03eb04cb0eee18384bfcc0, type: 2}
     - target: {fileID: 7555359217011099665, guid: 9e06ee49766723144947bf67195d66c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46643,6 +46648,8 @@ MonoBehaviour:
   moveSpeed: 3
   attackDistance: 1.5
   laughed: 0
+  laughMeter: 0
+  boss: 1
 --- !u!1001 &1157523715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63587,7 +63594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558229830}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24127485, y: -0.000000028921871, z: 0.0000000071905517, w: 0.97045684}
+  m_LocalRotation: {x: 0.24127483, y: 1.4614817e-15, z: -3.5109555e-16, w: 0.97045684}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84848,7 +84855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060123227}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24127486, y: -0.000000028921871, z: 0.000000007190552, w: 0.97045684}
+  m_LocalRotation: {x: 0.24127485, y: 1.4647301e-15, z: -3.64161e-16, w: 0.97045684}
   m_LocalPosition: {x: 0, y: 3, z: -6.1400003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -88122,6 +88129,11 @@ PrefabInstance:
       propertyPath: bossMusic
       value: 
       objectReference: {fileID: 1501226477}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
+      propertyPath: kingLaugh
+      value: 
+      objectReference: {fileID: 8300000, guid: 47f8d132abe32d4418f9f9d30674fd0a, type: 3}
     - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
         type: 3}
       propertyPath: combatMusic

@@ -124,8 +124,20 @@ public class SkillController : MonoBehaviour
         {
             if (enemy != null && !enemy.GetComponent<EnemyAI>().laughed)
             {
-                enemy.GetComponent<EnemyAI>().Laugh();
-                soundManager.EnemyLaugh();
+                if (enemy.GetComponent<EnemyAI>().boss)
+                {
+                    enemy.GetComponent<EnemyAI>().laughMeter++;
+                    if (enemy.GetComponent<EnemyAI>().laughMeter == 5)
+                    {
+                        enemy.GetComponent<EnemyAI>().Laugh();
+                        soundManager.KingLaugh();
+                    }
+                }
+                else
+                {
+                    enemy.GetComponent<EnemyAI>().Laugh();
+                    soundManager.EnemyLaugh();
+                }
             }
         }
         

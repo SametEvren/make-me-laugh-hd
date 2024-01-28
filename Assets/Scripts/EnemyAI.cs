@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     const string STATE_LAUGH = "Laugh";
     public bool laughed;
 
+    public int laughMeter;
+    public bool boss;
     private void OnEnable()
     {
         animator = GetComponent<Animator>();
