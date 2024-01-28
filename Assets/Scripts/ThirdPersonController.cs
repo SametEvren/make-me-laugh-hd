@@ -33,6 +33,7 @@ public class ThirdPersonController : MonoBehaviour
     private const string Talk = "Talk";
     private const string YoYo = "YoYo";
     private const string Card = "Card Throw";
+    private const string FlowerGun = "Flower Gun";
     
     
     //Skills
@@ -125,6 +126,12 @@ public class ThirdPersonController : MonoBehaviour
         {
             isOnSkill = true;
             UpdateMoveAnim(Card);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            isOnSkill = true;
+            UpdateMoveAnim(FlowerGun);
         }
 
         if (velocity.y > -20)
