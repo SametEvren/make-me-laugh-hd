@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5312828977353282584}
   - component: {fileID: 4440464674244551906}
   - component: {fileID: 2634309917109148148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BigDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

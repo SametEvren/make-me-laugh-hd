@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3882166474201996823}
   - component: {fileID: 2506284513526275783}
   - component: {fileID: 4778731804347925562}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeaponStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
