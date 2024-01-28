@@ -259,6 +259,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6273186675154197661}
     m_Modifications:
+    - target: {fileID: 5400953125024997697, guid: 56d8ec902e216d94c93c272979d0e307,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5780306609099497814, guid: 56d8ec902e216d94c93c272979d0e307,
         type: 3}
       propertyPath: m_Name
@@ -387,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900409253327754678, guid: 74f4fd55dc389394e8d48d5f738d1ef2,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
