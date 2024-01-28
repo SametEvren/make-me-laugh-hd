@@ -16,9 +16,12 @@ public class SkillController : MonoBehaviour
 
     public GameObject instantiatedCard;
     
+    //Flower Gun
+    public GameObject flowerGun;
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
+        flowerGun.SetActive(false);
     }
 
     public void JugglerBallSkill()
@@ -66,5 +69,20 @@ public class SkillController : MonoBehaviour
     {
         instantiatedCard = Instantiate(cardPrefab, handPos.position, Quaternion.identity, handPos.transform);
         instantiatedCard.transform.localPosition = Vector3.zero;
+    }
+
+    public void ActivateFlowerGun()
+    {
+        flowerGun.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1,0);
+        flowerGun.SetActive(true);
+    }
+
+    public void ShootTheGun()
+    {
+        float shapeKeyValue = 0;
+        DOTween.To(() => shapeKeyValue, x => shapeKeyValue = x, 100, 0.2f)
+            .OnUpdate(() => {
+                flowerGun.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1,shapeKeyValue);
+            });
     }
 }
