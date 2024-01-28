@@ -1,10 +1,17 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class LinearMovement : MonoBehaviour
 {
     private float speed = 5f;
-    void Update()
+    public float duration;
+    public Transform character;
+
+    private void Start()
     {
-        transform.position += Vector3.forward * Time.deltaTime * speed;
+        Vector3 forwardDirection = character.transform.forward;
+        var startPos = transform.position;
+
+        transform.DOMove(startPos + forwardDirection * 30, duration);
     }
 }

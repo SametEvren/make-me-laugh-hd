@@ -11,6 +11,11 @@ public class SkillController : MonoBehaviour
     //YoYo
     public GameObject yoYoPrefab;
     
+    //Card
+    public GameObject cardPrefab;
+
+    public GameObject instantiatedCard;
+    
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
@@ -28,6 +33,7 @@ public class SkillController : MonoBehaviour
             {
                 Destroy(x);
                 var bigJugglerBall = Instantiate(jugglerBall, handPos.position, Quaternion.identity);
+                bigJugglerBall.GetComponent<LinearMovement>().character = transform;
                 bigJugglerBall.GetComponent<LinearMovement>().enabled = true;
             });
         }
@@ -49,4 +55,16 @@ public class SkillController : MonoBehaviour
         });
     }
 
+    public void ThrowCardSkill()
+    {
+        instantiatedCard.GetComponent<LinearMovement>().enabled = true;
+        instantiatedCard.GetComponent<LinearMovement>().character = transform;
+        instantiatedCard.transform.parent = null;
+    }
+
+    public void ActivateCardSkill()
+    {
+        instantiatedCard = Instantiate(cardPrefab, handPos.position, Quaternion.identity, handPos.transform);
+        instantiatedCard.transform.localPosition = Vector3.zero;
+    }
 }
