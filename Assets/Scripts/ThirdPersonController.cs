@@ -29,7 +29,11 @@ public class ThirdPersonController : MonoBehaviour
     private const string Walk = "Walk";
     private const string Run = "Run";
     private const string Jump = "Jump";
-
+    private const string JugglerBall = "Juggler Ball";
+    
+    //Skills
+    public bool isOnSkill;
+    public SkillController skillController;
     private void Start()
     {
         trueSpeed = walkSpeed;
@@ -62,7 +66,7 @@ public class ThirdPersonController : MonoBehaviour
         
         if (direction.magnitude >= 0.1f)
         {
-            if (isGrounded)
+            if (isGrounded && !isOnSkill)
             {
                 if (Math.Abs(trueSpeed - walkSpeed) < 0.1f)
                     UpdateMoveAnim(Walk);
@@ -70,26 +74,35 @@ public class ThirdPersonController : MonoBehaviour
                     UpdateMoveAnim(Run);
             }
 
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
-                turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f,angle,0f);
+            if (!isOnSkill)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                    turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDirection.normalized * trueSpeed * Time.deltaTime);
+                Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                controller.Move(moveDirection.normalized * trueSpeed * Time.deltaTime);
+            }
         }
         else
         {
-            if (isGrounded)
+            if (isGrounded && !isOnSkill)
             {
                 UpdateMoveAnim(Idle);
             }
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isOnSkill)
         {
             velocity.y = Mathf.Sqrt((jumpHeight * 10) * -2f * gravity);
             UpdateMoveAnim(Jump);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && !isOnSkill)
+        {
+            isOnSkill = true;
+            UpdateMoveAnim(JugglerBall);
         }
 
         if (velocity.y > -20)
