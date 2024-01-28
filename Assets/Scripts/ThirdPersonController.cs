@@ -35,7 +35,10 @@ public class ThirdPersonController : MonoBehaviour
     private const string Card = "Card Throw";
     private const string FlowerGun = "Flower Gun";
     private const string Flute = "Flute";
-    
+    private const string HammerCombo1 = "HammerCombo1";
+    private const string HammerCombo2 = "HammerCombo2";
+    private const string HammerCombo3 = "HammerCombo3";
+    public int hammerNumber;
     
     //Skills
     public bool isOnSkill;
@@ -140,9 +143,24 @@ public class ThirdPersonController : MonoBehaviour
             isOnSkill = true;
             UpdateMoveAnim(Flute);
         }
-        
-        
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            isOnSkill = true;
+            switch (hammerNumber)
+            {
+                case 1: 
+                    UpdateMoveAnim(HammerCombo1);
+                    break;
+                case 2:
+                    UpdateMoveAnim(HammerCombo2);
+                    break;
+                case 3:
+                    UpdateMoveAnim(HammerCombo3);
+                    break;
+            }
+        }
+        
         if (velocity.y > -20)
         {
             velocity.y += (gravity * 10) * Time.deltaTime;
@@ -154,6 +172,12 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (currentState == newState) return;
 
+        if (currentState == HammerCombo1 || currentState == HammerCombo2 || currentState == HammerCombo3)
+        {
+            hammerNumber++;
+            if (hammerNumber == 4)
+                hammerNumber = 1;
+        }
         animator.Play(newState);
 
         currentState = newState;

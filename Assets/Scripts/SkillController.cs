@@ -21,11 +21,16 @@ public class SkillController : MonoBehaviour
     
     //Flute
     public GameObject flute;
+    
+    //Hammer
+    public GameObject hammer;
+    
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
         flowerGun.SetActive(false);
         flute.SetActive(false);
+        hammer.SetActive(false);
     }
 
     public void JugglerBallSkill()
@@ -104,5 +109,10 @@ public class SkillController : MonoBehaviour
             .OnUpdate(() => {
                 flute.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0,shapeKeyValue);
             });
+    }
+
+    public void ActivateHammer()
+    {
+        hammer.SetActive(true);
     }
 }
