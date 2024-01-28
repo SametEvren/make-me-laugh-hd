@@ -18,10 +18,14 @@ public class SkillController : MonoBehaviour
     
     //Flower Gun
     public GameObject flowerGun;
+    
+    //Flute
+    public GameObject flute;
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
         flowerGun.SetActive(false);
+        flute.SetActive(false);
     }
 
     public void JugglerBallSkill()
@@ -83,6 +87,22 @@ public class SkillController : MonoBehaviour
         DOTween.To(() => shapeKeyValue, x => shapeKeyValue = x, 100, 0.2f)
             .OnUpdate(() => {
                 flowerGun.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1,shapeKeyValue);
+            });
+    }
+
+    public void ActivateFlute()
+    {
+        flute.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0,0);
+        flute.SetActive(true);
+    }
+
+    public void ShootTheFlute()
+    {
+        flute.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0,0);
+        float shapeKeyValue = 0;
+        DOTween.To(() => shapeKeyValue, x => shapeKeyValue = x, 100, 1f)
+            .OnUpdate(() => {
+                flute.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0,shapeKeyValue);
             });
     }
 }
