@@ -44,6 +44,7 @@ public class ThirdPersonController : MonoBehaviour
     public bool isOnSkill;
     public SkillController skillController;
 
+    public GameObject enemy;
     private void Start()
     {
         trueSpeed = walkSpeed;
@@ -188,5 +189,13 @@ public class ThirdPersonController : MonoBehaviour
         animator.Play(newState);
 
         currentState = newState;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            enemy = other.gameObject;
+        }
     }
 }

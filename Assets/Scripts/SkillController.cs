@@ -24,7 +24,9 @@ public class SkillController : MonoBehaviour
     
     //Hammer
     public GameObject hammer;
-    
+
+
+    public SoundManager soundManager;
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
@@ -114,5 +116,14 @@ public class SkillController : MonoBehaviour
     public void ActivateHammer()
     {
         hammer.SetActive(true);
+    }
+
+    public void MakeOpponentLaugh()
+    {
+        if (thirdPersonController.enemy != null && !thirdPersonController.enemy.GetComponent<EnemyAI>().laughed)
+        {
+            thirdPersonController.enemy.GetComponent<EnemyAI>().Laugh();
+            soundManager.EnemyLaugh();
+        }
     }
 }

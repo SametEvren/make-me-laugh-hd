@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip flower;
     public AudioClip flute;
     public AudioClip hammer;
+    public AudioClip enemyLaugh;
     
     void Awake()
     {
@@ -75,8 +76,11 @@ public class SoundManager : MonoBehaviour
     {
         effectSource.PlayOneShot(hammer);
     }
-     
-     
+
+    public void EnemyLaugh()
+    {
+        effectSource.PlayOneShot(enemyLaugh);
+    }
     
     
     

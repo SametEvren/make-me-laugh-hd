@@ -14,6 +14,8 @@ public class EnemyAI : MonoBehaviour
     const string STATE_RUN = "Run";
     const string STATE_SLASH = "Slash";
     const string STATE_SLASH2 = "Slash2";
+    const string STATE_LAUGH = "Laugh";
+    public bool laughed;
 
     private void Start()
     {
@@ -22,6 +24,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (laughed)
+            return;
+        
         if (playerInRange)
         {
             MoveTowardsPlayer();
@@ -85,8 +90,15 @@ public class EnemyAI : MonoBehaviour
     private void UpdateMoveAnim(string newState)
     {
         if (currentState == newState) return;
-        
+        if (laughed)
+            return;
         animator.Play(newState);
         currentState = newState;
+    }
+
+    public void Laugh()
+    {
+        animator.SetTrigger("laugh");
+        laughed = true;
     }
 }
