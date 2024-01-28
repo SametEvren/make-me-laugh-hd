@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
@@ -44,7 +45,7 @@ public class ThirdPersonController : MonoBehaviour
     public bool isOnSkill;
     public SkillController skillController;
 
-    public GameObject enemy;
+    public List<GameObject> enemies;
     private void Start()
     {
         trueSpeed = walkSpeed;
@@ -195,7 +196,12 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            enemy = other.gameObject;
+            foreach (var enemy in enemies)
+            {
+                if (enemy == other.gameObject)
+                    return;
+            }
+            enemies.Add(other.gameObject);
         }
     }
 }

@@ -120,10 +120,14 @@ public class SkillController : MonoBehaviour
 
     public void MakeOpponentLaugh()
     {
-        if (thirdPersonController.enemy != null && !thirdPersonController.enemy.GetComponent<EnemyAI>().laughed)
+        foreach (var enemy in thirdPersonController.enemies)
         {
-            thirdPersonController.enemy.GetComponent<EnemyAI>().Laugh();
-            soundManager.EnemyLaugh();
+            if (enemy != null && !enemy.GetComponent<EnemyAI>().laughed)
+            {
+                enemy.GetComponent<EnemyAI>().Laugh();
+                soundManager.EnemyLaugh();
+            }
         }
+        
     }
 }

@@ -47,15 +47,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.transform == player)
-        {
-            playerInRange = false;
-            UpdateMoveAnim(STATE_IDLE);
-        }
-    }
-
     private void MoveTowardsPlayer()
     {
         float distance = Vector3.Distance(transform.position, player.position);

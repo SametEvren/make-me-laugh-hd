@@ -4,6 +4,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
+    public ThirdPersonController thirdPersonController;
+
     public AudioSource effectSource;
     public AudioSource musicSource;
 
