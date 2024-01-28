@@ -30,6 +30,9 @@ public class ThirdPersonController : MonoBehaviour
     private const string Run = "Run";
     private const string Jump = "Jump";
     private const string JugglerBall = "Juggler Ball";
+    private const string Talk = "Talk";
+    private const string YoYo = "YoYo";
+    
     
     //Skills
     public bool isOnSkill;
@@ -103,6 +106,18 @@ public class ThirdPersonController : MonoBehaviour
         {
             isOnSkill = true;
             UpdateMoveAnim(JugglerBall);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !isOnSkill)
+        {
+            isOnSkill = true;
+            UpdateMoveAnim(Talk);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && !isOnSkill)
+        {
+            isOnSkill = true;
+            UpdateMoveAnim(YoYo);
         }
 
         if (velocity.y > -20)
