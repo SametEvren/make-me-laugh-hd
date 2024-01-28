@@ -3,7 +3,17 @@ guid: b2f7a36614c767246bbcfd3947552363
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: broadsword
+    second: {fileID: 2100000, guid: 2da76ec92e8dc584eb16eeebd7cc9b3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sword
+    second: {fileID: 2100000, guid: d78bc46bcf69bfb4c878cd0d134dcb0a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
