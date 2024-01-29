@@ -137,6 +137,7 @@ public class SkillController : MonoBehaviour
                 {
                     enemy.GetComponent<EnemyAI>().Laugh();
                     soundManager.EnemyLaugh();
+                    CameraShake.Instance.TriggerShake();
                 }
             }
         }
