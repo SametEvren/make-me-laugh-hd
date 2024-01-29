@@ -94,4 +94,10 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("laugh");
         laughed = true;
     }
+
+    public void HitPlayerAnim()
+    {
+        if(!player.GetComponent<ThirdPersonController>().isOnSkill)
+            player.GetComponent<ThirdPersonController>().animator.SetTrigger("Hit");
+    }
 }
