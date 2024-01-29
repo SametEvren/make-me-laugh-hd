@@ -12,6 +12,9 @@ public class LinearMovement : MonoBehaviour
         Vector3 forwardDirection = character.transform.forward;
         var startPos = transform.position;
 
-        transform.DOMove(startPos + forwardDirection * 30, duration);
+        transform.DOMove(startPos + forwardDirection * 30, duration).OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
     }
 }

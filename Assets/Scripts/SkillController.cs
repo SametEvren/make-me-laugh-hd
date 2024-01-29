@@ -13,6 +13,8 @@ public class SkillController : MonoBehaviour
     
     //Card
     public GameObject cardPrefab;
+    private Vector3 cardPos = new (0.0063f,0.0071f,0.0558f);
+    private Vector3 cardRot = new (-194.706f,20.83701f,-1.962006f);
 
     public GameObject instantiatedCard;
     
@@ -79,7 +81,8 @@ public class SkillController : MonoBehaviour
     public void ActivateCardSkill()
     {
         instantiatedCard = Instantiate(cardPrefab, handPos.position, Quaternion.identity, handPos.transform);
-        instantiatedCard.transform.localPosition = Vector3.zero;
+        instantiatedCard.transform.localPosition = cardPos;
+        instantiatedCard.transform.localRotation = Quaternion.Euler(cardRot);
     }
 
     public void ActivateFlowerGun()
