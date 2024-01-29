@@ -121,36 +121,42 @@ public class ThirdPersonController : MonoBehaviour
         {
             isOnSkill = true;
             UpdateMoveAnim(JugglerBall);
+            transform.LookAt(enemies[^1].transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.E) && !isOnSkill)
         {
             isOnSkill = true;
             UpdateMoveAnim(Talk);
+            transform.LookAt(enemies[^1].transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !isOnSkill)
         {
             isOnSkill = true;
             UpdateMoveAnim(YoYo);
+            transform.LookAt(enemies[^1].transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
             isOnSkill = true;
             UpdateMoveAnim(Card);
+            transform.LookAt(enemies[^1].transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
             isOnSkill = true;
             UpdateMoveAnim(FlowerGun);
+            transform.LookAt(enemies[^1].transform.position);
         }
         
         if (Input.GetKeyDown(KeyCode.U))
         {
             isOnSkill = true;
             UpdateMoveAnim(Flute);
+            transform.LookAt(enemies[^1].transform.position);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -160,12 +166,15 @@ public class ThirdPersonController : MonoBehaviour
             {
                 case 1: 
                     UpdateMoveAnim(HammerCombo1);
+                    transform.LookAt(enemies[^1].transform.position);
                     break;
                 case 2:
                     UpdateMoveAnim(HammerCombo2);
+                    transform.LookAt(enemies[^1].transform.position);
                     break;
                 case 3:
                     UpdateMoveAnim(HammerCombo3);
+                    transform.LookAt(enemies[^1].transform.position);
                     break;
             }
         }
