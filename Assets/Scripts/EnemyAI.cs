@@ -112,6 +112,7 @@ public class EnemyAI : MonoBehaviour
                 player.GetComponent<ThirdPersonController>().animator.SetTrigger("Hit");
             else
             {
+                player.GetComponent<ThirdPersonController>().isOnSkill = true;
                 player.GetComponent<ThirdPersonController>().animator.SetTrigger("BossHit");
             }
         }
@@ -155,6 +156,8 @@ public class EnemyAI : MonoBehaviour
     public void GroundSlam()
     {
         SoundManager.Instance.GroundSlam();
+        player.GetComponent<ThirdPersonController>().isOnSkill = true;
+        player.GetComponent<ThirdPersonController>().animator.SetTrigger("BossHit");
     }
 
     public void WarCry()
