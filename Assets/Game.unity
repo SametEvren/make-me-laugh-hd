@@ -1790,7 +1790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62508328}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.245185, y: -0.000007951328, z: -0.0000020109273, w: 0.96947634}
+  m_LocalRotation: {x: -0.245185, y: -0.000007904147, z: -0.000001998995, w: 0.96947634}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49136,7 +49136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1932124141}
   moveSpeed: 3
-  attackDistance: 1.5
+  attackDistance: 3
   laughed: 0
   laughMeter: 0
   boss: 1
@@ -68280,7 +68280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558229830}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21713161, y: -0.0000079771, z: -0.0000017744142, w: 0.97614235}
+  m_LocalRotation: {x: -0.21713161, y: -0.000007982247, z: -0.0000017755589, w: 0.97614235}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -94063,9 +94063,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
         type: 3}
+      propertyPath: warCry
+      value: 
+      objectReference: {fileID: 8300000, guid: c0fdb92107b379248be9af22c5e90cbb, type: 3}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
       propertyPath: bossHit
       value: 
       objectReference: {fileID: 8300000, guid: 79ee8d89e677fe54d9ff0413da3741ae, type: 3}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
+      propertyPath: bossJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 3724c257888187749ad68da1cb384c9b, type: 3}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
+      propertyPath: rasengan
+      value: 
+      objectReference: {fileID: 8300000, guid: aa645f0d3c6a6564a9966e1e9a4c9bfe, type: 3}
     - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
         type: 3}
       propertyPath: swordHit
@@ -94081,6 +94096,16 @@ PrefabInstance:
       propertyPath: kingLaugh
       value: 
       objectReference: {fileID: 8300000, guid: 47f8d132abe32d4418f9f9d30674fd0a, type: 3}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
+      propertyPath: ballWhoosh
+      value: 
+      objectReference: {fileID: 8300000, guid: 858ceb6344ca9cb45ae2669856ae1c5e, type: 3}
+    - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
+        type: 3}
+      propertyPath: groundSlam
+      value: 
+      objectReference: {fileID: 8300000, guid: 69e713415cc014b4c87b58265432d574, type: 3}
     - target: {fileID: 7509385655913257149, guid: 333a745578568d847ba44944b1017c69,
         type: 3}
       propertyPath: combatMusic

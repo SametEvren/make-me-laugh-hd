@@ -37,7 +37,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator ActivateOtherAnim()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         bossActive = true;
         enemyAI.enabled = true;
         animator.runtimeAnimatorController = animatorOverrideController;

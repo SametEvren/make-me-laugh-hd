@@ -151,4 +151,19 @@ public class EnemyAI : MonoBehaviour
     {
         SoundManager.Instance.BossHit();
     }
+
+    public void GroundSlam()
+    {
+        SoundManager.Instance.GroundSlam();
+    }
+
+    public void WarCry()
+    {
+        SoundManager.Instance.WarCry();
+    }
+
+    public void BossJump()
+    {
+        SoundManager.Instance.BossJump();
+    }
 }

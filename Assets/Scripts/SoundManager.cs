@@ -26,6 +26,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip greatSwordWhoosh;
     public AudioClip greatSwordHit;
     public AudioClip bossHit;
+    public AudioClip groundSlam;
+    public AudioClip bossJump;
+    public AudioClip warCry;
+    public AudioClip rasengan;
 
     public AudioSource combatMusic;
     public AudioSource bossMusic;
@@ -128,7 +132,26 @@ public class SoundManager : MonoBehaviour
     {
         effectSource.PlayOneShot(bossHit);
     }
+
+    public void GroundSlam()
+    {
+        effectSource.PlayOneShot(groundSlam);
+    }
+
+    public void BossJump()
+    {
+        effectSource.PlayOneShot(bossJump);
+    }
     
+    public void WarCry()
+    {        
+        effectSource.PlayOneShot(warCry);
+    }
+
+    public void Rasengan()
+    {        
+        effectSource.PlayOneShot(rasengan);
+    }
     
     // Play a single clip through the sound effects source.
     public void PlayEffect(AudioClip clip, bool loop = false)
@@ -156,4 +179,6 @@ public class SoundManager : MonoBehaviour
     {
         effectSource.volume = volume;
     }
+
+    
 }

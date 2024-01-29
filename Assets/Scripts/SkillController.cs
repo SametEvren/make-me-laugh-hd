@@ -144,6 +144,10 @@ public class SkillController : MonoBehaviour
                 }
             }
         }
-        
+    }
+    
+    public void Rasengan()
+    {
+        SoundManager.Instance.Rasengan();
     }
 }
