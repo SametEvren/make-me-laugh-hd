@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     public int laughMeter;
     public bool boss;
+    public SphereCollider rightHand;
     private void OnEnable()
     {
         animator = GetComponent<Animator>();
@@ -55,12 +56,20 @@ public class EnemyAI : MonoBehaviour
 
         if (distance > attackDistance)
         {
+            if (boss)
+            {
+                rightHand.enabled = false;
+            }
             Vector3 direction = (player.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
             UpdateMoveAnim(STATE_RUN);
         }
         else
         {
+            if (boss)
+            {
+                rightHand.enabled = true;
+            }
             AttackPlayer();
         }
     }
@@ -97,7 +106,49 @@ public class EnemyAI : MonoBehaviour
 
     public void HitPlayerAnim()
     {
-        if(!player.GetComponent<ThirdPersonController>().isOnSkill)
-            player.GetComponent<ThirdPersonController>().animator.SetTrigger("Hit");
+        if (!player.GetComponent<ThirdPersonController>().isOnSkill)
+        {
+            if(!boss)
+                player.GetComponent<ThirdPersonController>().animator.SetTrigger("Hit");
+            else
+            {
+                player.GetComponent<ThirdPersonController>().animator.SetTrigger("BossHit");
+            }
+        }
+    }
+
+    public void ShakeTheCam()
+    {
+        CameraShake.Instance.TriggerShake();
+    }
+
+    public void Grumble()
+    {
+        SoundManager.Instance.KingGrumble();
+    }
+
+    public void GreatSwordWhoosh()
+    {
+        SoundManager.Instance.GreatSwordWhoosh();
+    }
+
+    public void GreatSwordHit()
+    {
+        SoundManager.Instance.GreatSwordHit();
+    }
+
+    public void SwordWhoosh()
+    {
+        SoundManager.Instance.SwordWhoosh();
+    }
+
+    public void SwordHit()
+    {
+        SoundManager.Instance.SwordHit();
+    }
+
+    public void BossHit()
+    {
+        SoundManager.Instance.BossHit();
     }
 }

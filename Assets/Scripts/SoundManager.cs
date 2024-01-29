@@ -20,6 +20,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip hammer;
     public AudioClip enemyLaugh;
     public AudioClip kingLaugh;
+    public AudioClip kingGrumble;
+    public AudioClip swordWhoosh;
+    public AudioClip swordHit;
+    public AudioClip greatSwordWhoosh;
+    public AudioClip greatSwordHit;
+    public AudioClip bossHit;
 
     public AudioSource combatMusic;
     public AudioSource bossMusic;
@@ -93,6 +99,35 @@ public class SoundManager : MonoBehaviour
         effectSource.PlayOneShot(kingLaugh);
     }
     
+    public void KingGrumble()
+    {
+        effectSource.PlayOneShot(kingGrumble);
+    }
+
+    public void SwordWhoosh()
+    {
+        effectSource.PlayOneShot(swordWhoosh);
+    }
+
+    public void SwordHit()
+    {
+        effectSource.PlayOneShot(swordHit);
+    }
+
+    public void GreatSwordWhoosh()
+    {
+        effectSource.PlayOneShot(greatSwordWhoosh);
+    }
+
+    public void GreatSwordHit()
+    {
+        effectSource.PlayOneShot(greatSwordHit);
+    }
+
+    public void BossHit()
+    {
+        effectSource.PlayOneShot(bossHit);
+    }
     
     
     // Play a single clip through the sound effects source.
