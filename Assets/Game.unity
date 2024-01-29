@@ -48981,6 +48981,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: Pan2D
+      value: 0.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.824
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.556
+      objectReference: {fileID: 0}
+    - target: {fileID: 136083041532784852, guid: 9e06ee49766723144947bf67195d66c7,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.78
+      objectReference: {fileID: 0}
     - target: {fileID: 1488568930283583624, guid: 9e06ee49766723144947bf67195d66c7,
         type: 3}
       propertyPath: m_Controller
@@ -59936,6 +59971,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 7d2631f00a074ad4b99d87fd6cb8b31a,
         type: 2}
+    - target: {fileID: 8314637486501951786, guid: aa5d8f240b7dde24eb7292e8b0cbfa23,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8592143431483271391, guid: aa5d8f240b7dde24eb7292e8b0cbfa23,
         type: 3}
       propertyPath: m_LocalRotation.w
