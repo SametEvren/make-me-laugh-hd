@@ -133,13 +133,15 @@ public class SkillController : MonoBehaviour
                     if (enemy.GetComponent<EnemyAI>().laughMeter == 5)
                     {
                         enemy.GetComponent<EnemyAI>().Laugh();
-                        soundManager.KingLaugh();
+                        enemy.GetComponent<AudioSource>().Play();
+                        // soundManager.KingLaugh();
                     }
                 }
                 else
                 {
                     enemy.GetComponent<EnemyAI>().Laugh();
-                    soundManager.EnemyLaugh();
+                    //soundManager.EnemyLaugh();
+                    enemy.GetComponent<AudioSource>().Play();
                     CameraShake.Instance.TriggerShake();
                 }
             }
