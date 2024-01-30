@@ -106,12 +106,18 @@ public class EnemyAI : MonoBehaviour
 
     public void HitPlayerAnim()
     {
-        if (!player.GetComponent<ThirdPersonController>().isOnSkill)
+        if (!player.GetComponent<ThirdPersonController>().isOnSkill && !GameManager.Instance.dead)
         {
-            if(!boss)
+            if (!boss)
+            {
+                GameManager.Instance.health -= 4;
+                GameManager.Instance.UpdateHealthBar();
                 player.GetComponent<ThirdPersonController>().animator.SetTrigger("Hit");
+            }
             else
             {
+                GameManager.Instance.health -= 30;
+                GameManager.Instance.UpdateHealthBar();
                 player.GetComponent<ThirdPersonController>().isOnSkill = true;
                 player.GetComponent<ThirdPersonController>().animator.SetTrigger("BossHit");
             }
@@ -158,6 +164,8 @@ public class EnemyAI : MonoBehaviour
         SoundManager.Instance.GroundSlam();
         player.GetComponent<ThirdPersonController>().isOnSkill = true;
         player.GetComponent<ThirdPersonController>().animator.SetTrigger("BossHit");
+        GameManager.Instance.health -= 10;
+        GameManager.Instance.UpdateHealthBar();
     }
 
     public void WarCry()

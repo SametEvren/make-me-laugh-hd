@@ -17,6 +17,8 @@ public class CreditsUI : MonoBehaviour
         names[3].transform.DOLocalMoveX(0, 0.5f).SetEase(Ease.OutElastic).SetDelay(1f);
         names[4].transform.DOLocalMoveX(0, 0.5f).SetEase(Ease.InBack).SetDelay(1.3f).OnComplete(() =>
         {
+            GameManager.Instance.skipButton.SetActive(true);
+            GameManager.Instance.skipText.DOColor(Color.white, 1f);
             photoSequenceUI.StartShowingPhotos();
         });
     }

@@ -3,21 +3,20 @@ using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
-    public static CameraShake Instance { get; private set; }
-    
-    void Awake()
+    #region Singleton
+    public static CameraShake Instance;
+
+    private void Awake()
     {
-        // Singleton pattern
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
+    #endregion
+
     
     public float ShakeDuration = 0.5f; // Duration of the shake
     public float ShakeAmplitude = 1.2f; // Amplitude of the shake

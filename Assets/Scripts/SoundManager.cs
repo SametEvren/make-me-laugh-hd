@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
-
     public ThirdPersonController thirdPersonController;
 
     public AudioSource effectSource;
@@ -34,19 +32,20 @@ public class SoundManager : MonoBehaviour
     public AudioSource combatMusic;
     public AudioSource bossMusic;
     
-    void Awake()
+    #region Singleton
+    public static SoundManager Instance;
+
+    private void Awake()
     {
-        // Singleton pattern
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
+    #endregion
+
 
     public void FootStepSFX()
     {

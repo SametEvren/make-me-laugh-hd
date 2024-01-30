@@ -50,12 +50,15 @@ public class ThirdPersonController : MonoBehaviour
     {
         trueSpeed = walkSpeed;
         controller = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
     
     private void Update()
     {
+        if (GameManager.Instance.dead)
+            return;
+        
         var soundManager = SoundManager.Instance;
         isGrounded = Physics.CheckSphere(transform.position, .1f, layerMask);
 
@@ -218,6 +221,7 @@ public class ThirdPersonController : MonoBehaviour
             // other.gameObject.GetComponent<MeshCollider>().enabled = true;
             SoundManager.Instance.combatMusic.gameObject.SetActive(false);
             SoundManager.Instance.bossMusic.gameObject.SetActive(true);
+            GameManager.Instance.bossLaughMeter.SetActive(true);
         }
     }
 }

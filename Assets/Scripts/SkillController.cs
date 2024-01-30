@@ -134,6 +134,7 @@ public class SkillController : MonoBehaviour
                 if (enemy.GetComponent<EnemyAI>().boss)
                 {
                     enemy.GetComponent<EnemyAI>().laughMeter++;
+                    GameManager.Instance.LaughMeterIncrease();
                     if (enemy.GetComponent<EnemyAI>().laughMeter == 5)
                     {
                         enemy.GetComponent<EnemyAI>().Laugh();
