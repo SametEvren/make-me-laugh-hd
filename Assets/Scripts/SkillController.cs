@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -29,6 +30,8 @@ public class SkillController : MonoBehaviour
 
 
     public SoundManager soundManager;
+
+    public CreditsUI creditsUI;
     public void SetOnSkillFalse()
     {
         thirdPersonController.isOnSkill = false;
@@ -136,6 +139,7 @@ public class SkillController : MonoBehaviour
                         enemy.GetComponent<EnemyAI>().Laugh();
                         enemy.GetComponent<AudioSource>().Play();
                         // soundManager.KingLaugh();
+                        StartCoroutine(EnterCredits());
                     }
                 }
                 else
@@ -149,6 +153,12 @@ public class SkillController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public IEnumerator EnterCredits()
+    {
+        yield return new WaitForSeconds(7f);
+        creditsUI.EnterCredits();
     }
     
     public void Rasengan()
