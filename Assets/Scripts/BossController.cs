@@ -1,6 +1,5 @@
 using System.Collections;
 using DG.Tweening;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
